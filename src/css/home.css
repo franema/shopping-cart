@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    min-height: 200vh;
+}
+
+.navbar {
+    display: flex;
+    gap: 10%;
+    align-items: center;
+    padding: 2% 4%;
+}
+
+.navbar>* {
+    padding: 1%;
+    text-decoration: none;
+    color: black;
+}
+
+.navbar>*:hover {
+    background-color: aqua;
+}
+
+.cart-container {
+    margin-left: auto;
+    width: 25px;
+}
