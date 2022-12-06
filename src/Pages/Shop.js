@@ -1,15 +1,21 @@
 import React from 'react'
-import Navbar from '../Components/Navbar'
 import { products } from '../Products/AllProducts'
+import { Link } from 'react-router-dom'
 
-function Shop( { addProduct } ) {
+function Shop() {
 
 
   return (
     <div>
-      <Navbar></Navbar>
       <div className='shop-container'>
-        {products.map(product => (<div key={product} onClick={(e) => addProduct(e.target)} className='product'> {product} </div> ))}
+        {products.map(product => (
+          <Link to={`/shop/${product.id}`} key={product.id} className='product'>
+
+            <p>{product.name}</p>
+            <p>${product.price}</p>
+            <img className='product-image' alt={product.name} src={product.img}></img>
+
+          </Link>))}
       </div>
     </div>
   )
