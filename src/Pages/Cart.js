@@ -1,13 +1,11 @@
-import React, { useEffect, useState } from 'react'
-import Navbar from '../Components/Navbar'
+import React from 'react'
 
 function Cart( {addedProducts} ) {
 
   return (
     <div>
-        <Navbar></Navbar>
         <h1>Cart</h1>
-        {addedProducts.map(product => (<div key={product}>{product.innerText}</div>))}
+        {addedProducts.map(product => (<div key={product.id}>{product.name}, {product.quantity}</div>))}
     </div>
   )
 }
