@@ -7,20 +7,20 @@ import Shop from "./Pages/Shop";
 import Cart from "./Pages/Cart";
 import Navbar from "./Components/Navbar";
 import ProductPage from "./Pages/ProductPage";
-import { products } from "./Products/AllProducts";
 
 function App() {
 
   const [cartProducts, setCartProducts] = useState([])
 
-  function addProduct(newProduct) {
-    newProduct.quantity += 1
+  function addProduct(newProduct, quantity) {
     for(let i = 0; i<cartProducts.length; i++) {
       if(cartProducts[i].id === newProduct.id) {
+        cartProducts[i].quantity = quantity
         setCartProducts([...cartProducts])
         return
       } 
     }
+    newProduct.quantity = quantity
     setCartProducts([...cartProducts, newProduct])
   }
 
@@ -30,7 +30,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
-        <Route path="/shop/:id" element={<ProductPage addProduct={addProduct}/>} />
+        <Route path="/shop/:id" element={<ProductPage addProduct={addProduct} cartProducts={cartProducts}/>} />
         <Route path="/about" element={<About />} />
         <Route path="/cart" element={<Cart addedProducts={cartProducts} />}></Route>
       </Routes>
