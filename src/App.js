@@ -24,6 +24,16 @@ function App() {
     setCartProducts([...cartProducts, newProduct])
   }
 
+  function deleteProduct (product) {
+    for(let i = 0; i<cartProducts.length; i++) {
+      if(cartProducts[i].id === product.id) {
+        cartProducts.splice(i, 1)
+        setCartProducts([...cartProducts])
+      }
+    }
+
+  }
+
   return (
     <BrowserRouter>
       <Navbar></Navbar>
@@ -32,7 +42,7 @@ function App() {
         <Route path="/shop" element={<Shop />} />
         <Route path="/shop/:id" element={<ProductPage addProduct={addProduct} cartProducts={cartProducts}/>} />
         <Route path="/about" element={<About />} />
-        <Route path="/cart" element={<Cart addedProducts={cartProducts} />}></Route>
+        <Route path="/cart" element={<Cart addedProducts={cartProducts} deleteProduct={deleteProduct} />}></Route>
       </Routes>
     </BrowserRouter>
   );
