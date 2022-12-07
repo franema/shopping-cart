@@ -1,18 +1,26 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-function Cart({ addedProducts }) {
+function Cart({ addedProducts, deleteProduct }) {
 
-  const [emptyCart, setEmptyCart] = useState(true)
+
 
   useEffect(() => {
-    setEmptyCart(addedProducts.length === 0)
-  }, [addedProducts])
+    checkQuantity()
+  })
+
+  function checkQuantity () {
+    for(let i = 0; i<addedProducts.length; i++) {
+      if(addedProducts[i].quantity === 0) {
+        deleteProduct(addedProducts[i])
+      }
+    }
+  }
 
   return (
     <div className='cart'>
       {
-        emptyCart ? (
+        addedProducts.length === 0 ? (
           <h1>The cart is empty</h1>
         ) : (
           <div className='cart-product-container'>
@@ -23,7 +31,7 @@ function Cart({ addedProducts }) {
                 <Link to={`/shop/${product.id}`}><img className='cart-product-img' src={product.img} alt={product.name}></img> </Link>
                 <p>Quantity: {product.quantity}</p>
                 <p className='price'>Subtotal ${product.quantity * product.price}</p>
-                <button>Delete</button>
+                <button onClick={(e) => deleteProduct(e.target)} id={product.id}>Delete</button>
               </div>))}
             {addedProducts.length > 1 ? (
               <p>Total: ${addedProducts.reduce((acc, obj) => acc + (obj.quantity * obj.price), 0
