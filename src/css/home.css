@@ -32,7 +32,7 @@ body {
 }
 
 
-/*Products*/
+/*Products-shop*/
 
 .shop-container {
     display: flex;
@@ -59,13 +59,18 @@ body {
 
 .product-image {
     width: 100%;
+    transition: all 0.5s;
 }
 
 .product:hover {
     transform: scale(1.1);
 }
 
-/*Selected Product*/
+/* .product-image:hover {
+    transform: scale(1.1);
+} */
+
+/*Selected Product page*/
 
 .selected-product-container {
     display: grid;
@@ -86,14 +91,97 @@ body {
 .add-to-cart {
     background-color: rgba(131, 158, 158, 0.514);
     padding: 5%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16%;
+    justify-content: center;
 }
 
-.add-to-cart>input {
-    width: 5%;
+.quantity-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4%;
+}
+
+.quantity-buttons>button {
+    font-size: 2rem;
+    background-color: rgba(131, 158, 158, 0);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0 2%;
+}
+
+.add-to-cart-quantity {
+    width: 10%;
+    background-color: rgba(131, 158, 158, 0);
+    font-size: 2rem;
+    text-align: center;
+    padding-left: 3%;
+    color: white;
+    border: 1px solid white;
+}
+
+.add-to-cart>p {
+    font-size: 1.5rem;
+}
+
+.add-to-cart-button {
+    padding: 2%;
+    font-size: 1.5rem;
+    cursor: pointer;
 }
 
 /*Cart*/
 
 .cart {
     color: white;
+    margin: 5% 15%;
+    background-color: rgba(70, 85, 85, 0.644);
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cart-product-container {
+    background-color: rgba(70, 85, 85, 0.884);
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.cart-product {
+    width: 30%;
+    margin: 4%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4%;
+    border: 1px solid rgba(185, 163, 163, 0.336);
+    border-radius: 6px;
+    padding: 2%;
+}
+
+.cart-product-img {
+    width: 100%;
+    margin: 5% 0;
+    transition: all 0.5s;
+}
+
+.cart-product-img:hover {
+    transform: scale(1.1);
+}
+
+.price {
+    margin: 4% 0;
+}
+
+.cart-product-container>p {
+    margin-left: auto;
 }
