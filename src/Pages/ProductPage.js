@@ -21,10 +21,16 @@ function ProductPage({ addProduct, cartProducts }) {
     }, [cartProducts, selectedProduct])
 
     function increaseQuantity () {
+        if(quantity >= 9) {
+            return
+        }
         setQuantity(quantity + 1)
     }
 
     function decreaseQuantity () {
+        if(quantity <= 0) {
+            return
+        }
         setQuantity(quantity - 1)
     }
 
@@ -35,12 +41,13 @@ function ProductPage({ addProduct, cartProducts }) {
             </div>
             <div className='add-to-cart'>
                 <h1>{selectedProduct.name}</h1>
-                <div>
+                <div className='quantity-buttons'>
                     <button onClick={decreaseQuantity}>-</button>
-                    <input type="number" disabled={true} value={quantity}></input>
+                    <input className='add-to-cart-quantity' type="number" disabled={true} value={quantity}></input>
                     <button onClick={increaseQuantity}>+</button>
                 </div>
-                <button onClick={() => addProduct(selectedProduct, quantity)}>Add to cart</button>
+                <p>Total: ${quantity * selectedProduct.price}</p>
+                <button className='add-to-cart-button' onClick={() => addProduct(selectedProduct, quantity)}>Add to cart</button>
             </div>
         </div>
     )
