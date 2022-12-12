@@ -12,21 +12,30 @@ function App() {
 
   const [cartProducts, setCartProducts] = useState([])
 
+  // const [loaderStyle, setloaderStyle] = useState({
+  //   visibility: "visible",
+  // })
+
+
+  // function removeLoader() {
+  //   setloaderStyle({visibility:"hidden"})
+  // }
+
   function addProduct(newProduct, quantity) {
-    for(let i = 0; i<cartProducts.length; i++) {
-      if(cartProducts[i].id === newProduct.id) {
+    for (let i = 0; i < cartProducts.length; i++) {
+      if (cartProducts[i].id === newProduct.id) {
         cartProducts[i].quantity = quantity
         setCartProducts([...cartProducts])
         return
-      } 
+      }
     }
     newProduct.quantity = quantity
     setCartProducts([...cartProducts, newProduct])
   }
 
-  function deleteProduct (product) {
-    for(let i = 0; i<cartProducts.length; i++) {
-      if(cartProducts[i].id === product.id) {
+  function deleteProduct(product) {
+    for (let i = 0; i < cartProducts.length; i++) {
+      if (cartProducts[i].id === product.id) {
         cartProducts.splice(i, 1)
         setCartProducts([...cartProducts])
       }
@@ -40,7 +49,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/shop" element={<Shop />} />
-        <Route path="/shop/:id" element={<ProductPage addProduct={addProduct} cartProducts={cartProducts}/>} />
+        <Route path="/shop/:id" element={<ProductPage addProduct={addProduct} cartProducts={cartProducts} />} />
         <Route path="/about" element={<About />} />
         <Route path="/cart" element={<Cart addedProducts={cartProducts} deleteProduct={deleteProduct} />}></Route>
       </Routes>
