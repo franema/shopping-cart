@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/Home";
@@ -11,15 +10,6 @@ import ProductPage from "./Pages/ProductPage";
 function App() {
 
   const [cartProducts, setCartProducts] = useState([])
-
-  // const [loaderStyle, setloaderStyle] = useState({
-  //   visibility: "visible",
-  // })
-
-
-  // function removeLoader() {
-  //   setloaderStyle({visibility:"hidden"})
-  // }
 
   function addProduct(newProduct, quantity) {
     for (let i = 0; i < cartProducts.length; i++) {
