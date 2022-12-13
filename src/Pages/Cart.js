@@ -31,7 +31,7 @@ function Cart({ addedProducts, deleteProduct }) {
                 <Link to={`/shop/${product.id}`}><img className='cart-product-img' src={product.img} alt={product.name}></img> </Link>
                 <p>Quantity: {product.quantity}</p>
                 <p className='price'>Subtotal ${product.quantity * product.price}</p>
-                <button onClick={(e) => deleteProduct(e.target)} id={product.id}>Delete</button>
+                <button className='delete-product' onClick={(e) => deleteProduct(e.target)} id={product.id}>Delete</button>
               </div>))}
             {addedProducts.length > 1 ? (
               <p>Total: ${addedProducts.reduce((acc, obj) => acc + (obj.quantity * obj.price), 0
