@@ -23,7 +23,7 @@ body {
 }
 
 .navbar>*:hover {
-    background-color: aqua;
+    color: rgb(168, 168, 168);
 }
 
 .cart-container {
@@ -32,6 +32,27 @@ body {
 }
 
 
+/*Home*/
+
+.content {
+    margin: 5%;
+    background-color: rgba(139, 139, 139, 0.733);
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.artist_container {
+    width: 40%;
+    margin-top: 5%;
+}
+
+.artist_image {
+    width: 100%;
+}
+ 
 /*Products-shop*/
 
 .shop-container {
@@ -43,8 +64,8 @@ body {
 .product {
     flex: 1;
     margin: 5%;
-    background-color: antiquewhite;
     padding: 1%;
+    background-color: rgba(136, 143, 143, 0.664);
     transition: all 0.5s;
     cursor: pointer;
     display: flex;
@@ -54,7 +75,7 @@ body {
     align-items: center;
     text-align: center;
     text-decoration: none;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 .product-image {
@@ -65,10 +86,6 @@ body {
 .product:hover {
     transform: scale(1.1);
 }
-
-/* .product-image:hover {
-    transform: scale(1.1);
-} */
 
 /*Selected Product page*/
 
@@ -133,6 +150,15 @@ body {
     padding: 2%;
     font-size: 1.5rem;
     cursor: pointer;
+    border: none;
+    background-color: rgb(64, 64, 192);
+    color: white;
+    font-weight: 700;
+    border-radius: 16px;
+}
+
+.add-to-cart-button:hover {
+    background-color: rgb(10, 51, 90);
 }
 
 /*Cart*/
@@ -184,4 +210,17 @@ body {
 
 .cart-product-container>p {
     margin-left: auto;
+}
+
+.delete-product {
+    background-color: rgb(167, 48, 48);
+    border: none;
+    color: white;
+    padding: 2%;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.delete-product:hover {
+    background-color: rgb(104, 32, 32);
 }
