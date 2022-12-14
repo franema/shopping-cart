@@ -1,29 +1,33 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
-function Cart({ addedProducts, deleteProduct }) {
-
-
+function Cart({ addedProducts, deleteProduct, showCart, toggleShowCart }) {
 
   useEffect(() => {
     checkQuantity()
   })
 
-  function checkQuantity () {
-    for(let i = 0; i<addedProducts.length; i++) {
-      if(addedProducts[i].quantity === 0) {
+  function checkQuantity() {
+    for (let i = 0; i < addedProducts.length; i++) {
+      if (addedProducts[i].quantity === 0) {
         deleteProduct(addedProducts[i])
       }
     }
   }
 
+  function thankBuying () {
+    alert("Thanks for buying!!")
+  }
+
   return (
-    <div className='cart'>
+    <div onClick={(e) => {toggleShowCart(e)}} className={`cart ${ showCart ? "visible" : ""}`}>
       {
         addedProducts.length === 0 ? (
-          <h1>The cart is empty</h1>
+          <div className={`cart-product-container ${ showCart ? "visible" : ""}`}>
+            <h1>The cart is empty</h1>
+          </div>
         ) : (
-          <div className='cart-product-container'>
+          <div className={`cart-product-container ${ showCart ? "visible" : ""}`}>
             <h1>Cart</h1>
             {addedProducts.map(product => (
               <div className='cart-product' key={product.id}>
@@ -40,6 +44,8 @@ function Cart({ addedProducts, deleteProduct }) {
               <p>Total: ${addedProducts[0].quantity * addedProducts[0].price}</p>
             )
             }
+            <button onClick={thankBuying}>Checkout</button>
+            <Link to="/shop"><button onClick={toggleShowCart}>Continue shopping</button></Link>
           </div>
         )
       }
